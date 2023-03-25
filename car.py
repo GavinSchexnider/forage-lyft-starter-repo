@@ -2,15 +2,9 @@ from serviceable import Serviceable
 
 
 class Car(Serviceable):
-    def __init__(self, battery, engine):
-        self.battery = battery
+    def __init__(self, engine, battery):
         self.engine = engine
+        self.battery = battery
 
-    
     def needs_service(self):
-        does_battery_need_service: bool = self.battery.needs_service()
-        does_engine_need_service: bool = self.engine.needs_service()
-        if does_battery_need_service or does_engine_need_service:
-            return True
-        else:
-            return False
+        return self.engine.needs_service() or self.battery.needs_service()

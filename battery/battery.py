@@ -1,8 +1,6 @@
-import abstractmethod
-
-class Battery:
+from abc import ABC
 
 
-    @abstractmethod
-    def needs_service() -> bool:
+class Battery(ABC):
+    def needs_service(self):
         pass
